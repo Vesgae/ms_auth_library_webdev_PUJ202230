@@ -63,6 +63,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<JwtDto> login(@Validated @RequestBody LoginUser loginUser, BindingResult bindingResult){
         if(bindingResult.hasErrors())
             return new ResponseEntity("Campos invalidos.", HttpStatus.BAD_REQUEST);
