@@ -28,7 +28,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/users")
 @CrossOrigin
 public class AuthController {
 
@@ -44,7 +43,7 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
     @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping("/create")
+    @PostMapping("/users/create-user")
     public ResponseEntity<?> newUser(@Validated @RequestBody NewUser newUser, BindingResult bindingResult){
         if(bindingResult.hasErrors())
             return new ResponseEntity("Campos invalidos.", HttpStatus.BAD_REQUEST);
