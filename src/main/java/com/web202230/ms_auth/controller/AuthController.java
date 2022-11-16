@@ -51,7 +51,7 @@ public class AuthController {
             return new ResponseEntity("Usuario ya existe.", HttpStatus.BAD_REQUEST);
         User user = new User(newUser.getName(), newUser.getEmail(), passwordEncoder.encode(newUser.getPassword()), newUser.getBirthday());
         Set<Role> roles = new HashSet<>();
-        roles.add(new Role(RoleNames.WORKERS));
+        roles.add(new Role(RoleNames.WORKER));
         if(newUser.getRoles().contains("ADMIN"))
             roles.add(new Role(RoleNames.ADMIN));
         user.setRoles(roles);
